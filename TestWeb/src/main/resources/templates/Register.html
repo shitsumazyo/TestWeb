@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+    <head>
+        <title>register</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="a test page">
+        <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <style>
+        a{
+            color: rgb(21, 183, 233);
+        }
+        a:hover{
+            color: red;
+        }
+        a:visited{
+            color: rgb(175, 172, 172);
+        }
+        div{
+            margin: 10px 0 10px 0px;
+            
+        }
+        p{
+            font-size: 20px;
+        }
+        input{
+            width: 460px;
+            height: 35px;
+            padding: 0 5px 0 5px;
+        }
+        input:hover{
+            background-color: rgb(226, 220, 220);
+        }
+        #btn:hover{
+            opacity: 0.8;
+        }
+        #cbtn{
+            width: 15px;
+            height: 15px;
+        }
+        
+        label{
+            font-size: 25px;
+        }
+        h1{
+            font-size: 40px;
+            text-align: center;
+            text-decoration: underline red;
+        }
+        </style>
+        
+    </head>
+    <body>
+        <header  style="text-align: center;">
+            <h1><i class="material-symbols-outlined"></i>Register</h1>
+            <p>Please fill in this form to create an account</p>
+        </header>
+        <hr style="width: 700px;">
+        <form action="" method="post" style="border: solid rgb(21, 183, 233);border-width: 10px 7px 10px 7px;width: 490px;padding-left: 10px;margin: auto;margin-top: 20px;">
+                <div> 
+                    <label for="username">Username</label><br>
+                    <input type="text" name="username" placeholder="Enter Username">
+                </div>
+                <div>
+                    <label for="password">Password</label><br>
+                    <input type="password" name="password" placeholder="Enter Password">    
+                </div>
+                <div>
+                    <label for="repeat password"> Repeat Password</label><br>
+                     <input type="password" name="repeat password" placeholder="Repeat Password">
+                </div>
+                <div>
+                    <input type="checkbox" name="confirm" id="cbtn">
+                    <label for="confirm" style="font-size: 20px;">I accept the <a href="#">Terms & Privacy</a></label>
+                </div>
+                <div>
+                    <input id="btn" type="submit" value="Register" style="background-color: rgb(95, 185, 98); color: white; cursor: pointer;">
+                </div>
+                <div>
+                    <p>Already have an account? <a href="#">Login Here</a></p>
+                </div>
+        </form>
+    </body>
+</html>
