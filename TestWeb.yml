@@ -1,0 +1,225 @@
+openapi: '3.0.2'
+info:
+  title: blogs app
+  description: Test
+  version: '1.0'
+servers:
+  - url: https://localhost:8080
+paths:
+  /login:
+    get:
+      tags:
+        - users
+      description: '返回登陆界面'
+      operationId: getLoginView
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/LoginHtml"
+    post:
+      tags:
+        - users
+      description: '接受用户登陆信息'
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          text/json:
+            schema:
+              type: "object"
+              properties:
+                username:
+                  type: "string"
+                password:
+                  type: "string"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/BlogList"
+  /register:
+    get:
+      tags:
+        - users
+      description: '返回注册界面'
+      operationId: getRegisterView
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/RegisterHtml"
+    post:
+      tags:
+        - users
+      description: '接受用户注册信息'
+      operationId: register
+      requestBody:
+        required: true
+        content:
+          text/json:
+            schema:
+              type: "object"
+              properties:
+                username:
+                  type: "string"
+                password:
+                  type: "string"
+                confirmPassword:
+                  type: "string"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/LoginHtml"
+  
+
+  /createblog:
+    get:
+      tags:
+        - blogs
+      description: '访问创建blog界面'
+      operationId: gerCBView
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/CreateBlogHtml"  
+    post:
+      tags:
+        - blogs
+      description: '创建一篇blog'
+      operationId: getCB
+      requestBody:
+        required: true
+        content:
+          text/json:
+            schema:
+              type: "object"
+              properties:
+                blogtitle:
+                  type: "string"
+                blogsummary:
+                  type: "string"
+                blogcontent:
+                  type: "string"
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/BlogList"
+
+  /editBlog:
+    get:
+      tags:
+        - blogs
+      description: '访问编辑blog界面'
+      operationId: getEBView
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              schema:
+                $ref: "#/components/schemas/EditBlogHtml"
+    post:
+      tags:
+        - blogs
+      description: '编辑blog'
+      operationId: getEB
+      requestBody:
+        required: true
+        content:
+          text/json:
+            schema:
+              type: "object"
+              properties:
+                userId:
+                  type: "string"
+                blogtitle:
+                  type: "string"
+                blogsummary:
+                  type: "string"
+                blogcontent:
+                  type: "string"
+                
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/BlogList"
+  
+  /deleteblog:
+    post:
+      tags:
+        - blogs
+      description: '删除blog'
+      operationId: getDB
+      requestBody:
+        required: true
+        content:
+          text/json:
+            schema:
+              type: "object"
+              properties:
+                userId:
+                  type: "string"
+                blogtitle:
+                  type: "string"
+                
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:    
+              schema:
+                $ref: "#/components/schemas/BlogList"
+
+components:
+  schemas:
+    LoginHtml:
+      type: "string"
+
+    Login:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+        view:
+          type: "string"
+
+    RegisterHtml:
+      type: "string"
+
+    CreateBlogHtml:
+      type: "string"
+    
+    BlogList:
+      type: "object"
+      properties:
+        blogtitle:
+          type: "string"
+        blogsummary:
+          type: "string"
+        blogcontent:
+          type: "string"
+        view:
+          type: "string"
+
+    EditBlogHtml:
+      type: "string"
+    
