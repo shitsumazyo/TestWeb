@@ -127,6 +127,18 @@ paths:
         - blogs
       description: '访问编辑blog界面'
       operationId: getEBView
+      requestBody:
+        required: true
+        content:
+          text/json:
+            schema:
+              type: "object"
+              properties:
+                userId:
+                  type: "string"
+                blogtitle:
+                  type: "string"
+                
       responses:
         '200':
           description: OK
