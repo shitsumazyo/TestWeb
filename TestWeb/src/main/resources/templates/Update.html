@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 20px 10px 20px 10px;
+        }
+        label, p, h1{
+            user-select: none;
+        }
+        .inp:hover{
+            background-color: rgb(230, 225, 225);
+        }
+        textarea:hover{
+            background-color: rgb(230, 225, 225);
+            
+        }
+        #btn:hover{
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header style="width:540px; margin:auto;text-align: center; margin-bottom: 20px;border:solid;box-shadow: 10px 10px 5px #aaaaaa;">
+        <h1 style="text-decoration: underline red;">Update your blog</h1>
+        <p>Please update your blog</p>
+    </header>
+    <hr style="width:50%;border-color: royalblue;">
+    <form action="/update" method="post" style="width: 540px;margin: auto; border: solid; margin-top: 30px;border-color: rgb(21, 183, 233);box-shadow: 10px 10px 5px #aaaaaa;border-width: 15px 10px 15px 10px;">
+    	<input type="hidden" th:value="${username}" name="username">
+    	<input type="hidden" th:value="${blogid}" name="id">
+        <div>
+            <label for="title">Title </label><br>
+            <input name="blogtitle" type="text" id="title" class="inp"  style="width:500px;height: 22px;padding-left: 5px;" th:value="${blogtitle}">
+        </div>
+        <div>
+            <label for="summary">Summary </label><br>
+            <input name="blogsummary" type="text" id="summary" class="inp" style="width:500px;height: 22px;padding-left: 5px;" th:value="${blogsummary}">
+        </div>
+        <div>
+            <label for="content">Content </label><br>
+            <textarea name="blogcontent" id="content"  style="height: 180px;width:500px;padding-left: 5px;padding-top: 5px;font-size: 15px;resize: none;" th:text="${blogcontent}"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Update" id="btn" style="cursor:pointer;width: 150px;height: 25px;">
+        </div>
+    </form>
+</body>
+</html>

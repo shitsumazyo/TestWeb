@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+    	div{
+            margin: 20px 10px 20px 10px;
+        }
+        .btn:hover{
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header style="width:540px; margin:auto;text-align: center; margin-bottom: 20px;border:solid;box-shadow: 10px 10px 5px #aaaaaa;">
+        <h1 style="text-decoration: underline red;">Welcom <span th:text="${username}"></span></h1>
+    </header>
+    <form action="/add" method="get" style="margin: 5px 0px 0px 900px; width: 180px; height: 35px">
+        <input type="hidden" th:value="${username}" name="username">
+        <button style="cursor:pointer;width: 150px;height: 25px;">add</button>
+    </form>
+    <hr style="width:50%;border-color: royalblue;">
+    <form  method="post" style="width: 540px;margin: auto;border: solid;margin-top: 30px;border-color: rgb(21, 183, 233);border-width: 20px 16px 20px 16px; box-shadow: 10px 10px 5px #aaaaaa;"  th:each="blog : ${blogs}">
+    
+        <input type="hidden" th:value="${username}" name="username">
+        <input type="hidden" th:value="${blog.blogtitle}" name="blogtitle">
+        
+        <div>
+            <h2 for="title">Title </h2>
+            <p  type="text" id="title" class="inp" style="width:500px;height: 22px;padding-left: 5px; overflow-wrap: break-word;white-space: pre-wrap;overflow: scroll;overflow-x: hidden;overflow-y: hidden;" th:text="${blog.blogtitle}"></p>
+        
+            <h2 for="summary">Summary </h2>
+            <p  type="text" id="summary" class="inp"  style="width:500px;height: 22px;padding-left: 5px; overflow-wrap: break-word;white-space: pre-wrap;overflow: scroll;overflow-x: hidden;overflow-y: hidden;" th:text="${blog.blogsummary}"></p>
+        
+            <h2 for="content">Content </h2>
+            <p id="content" style="height: 180px;width:500px;padding-left: 5px;padding-top: 5px;font-size: 15px; overflow-wrap: break-word;white-space: pre-wrap;overflow: scroll;overflow-x: hidden;overflow-y: visible;" th:text="${blog.blogcontent}"></p>
+        </div>
+        
+        <div>
+            <input type="submit" value="delete" class="btn" formaction="/delete" style="cursor:pointer;width: 150px;height: 25px;">
+            
+            <input type="submit" value="edit" class="btn" formaction="/edit"  style="cursor:pointer;width: 150px;height: 25px;float: right;">
+        </div>
+       
+    </form>
+</body>
+</html>

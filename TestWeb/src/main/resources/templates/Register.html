@@ -55,7 +55,7 @@
             <p>Please fill in this form to create an account</p>
         </header>
         <hr style="width: 700px;">
-        <form action="" method="post" style="border: solid rgb(21, 183, 233);border-width: 10px 7px 10px 7px;width: 490px;padding-left: 10px;margin: auto;margin-top: 20px;">
+        <form action="/register" method="post" style="border: solid rgb(21, 183, 233);border-width: 10px 7px 10px 7px;width: 490px;padding-left: 10px;margin: auto;margin-top: 20px;">
                 <div> 
                     <label for="username">Username</label><br>
                     <input type="text" name="username" placeholder="Enter Username">
@@ -65,18 +65,18 @@
                     <input type="password" name="password" placeholder="Enter Password">    
                 </div>
                 <div>
-                    <label for="repeat password"> Repeat Password</label><br>
-                     <input type="password" name="repeat password" placeholder="Repeat Password">
+                    <label for="repeat_password"> Repeat Password</label><br>
+                     <input type="password" name="repeat_password" placeholder="Repeat Password">
                 </div>
                 <div>
                     <input type="checkbox" name="confirm" id="cbtn">
                     <label for="confirm" style="font-size: 20px;">I accept the <a href="#">Terms & Privacy</a></label>
                 </div>
                 <div>
-                    <input id="btn" type="submit" value="Register" style="background-color: rgb(95, 185, 98); color: white; cursor: pointer;">
+                    <input id="btn" type="submit" value="Register" style="background-color: rgb(233, 231, 231); cursor: pointer;">
                 </div>
                 <div>
-                    <p>Already have an account? <a href="#">Login Here</a></p>
+                    <p>Already have an account? <a href="/login">Login Here</a></p>
                 </div>
         </form>
     </body>
