@@ -29,7 +29,7 @@ public class ControllerTI {
 			@RequestParam("password") String password, //
 			@RequestParam("repeat_password") String repeatpassword, //
 			ModelAndView mv) {
-		if (!password.equals(repeatpassword)) {
+		if (!password.equals(repeatpassword) || password.equals("")) {
 			mv.setViewName("fail");
 			mv.addObject("message", "Passwords do not match");
 		} else if(username.equals("")) {
