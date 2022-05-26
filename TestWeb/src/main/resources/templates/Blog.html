@@ -16,7 +16,7 @@
 </head>
 <body>
     <header style="width:540px; margin:auto;text-align: center; margin-bottom: 20px;border:solid;box-shadow: 10px 10px 5px #aaaaaa;">
-        <h1 style="text-decoration: underline red;">Welcom <span th:text="${username}"></span></h1>
+        <h1 style="text-decoration: underline red;">Welcom <span style="color: royalblue;" th:text="${username}"></span></h1>
     </header>
     <form action="/add" method="get" style="margin: 5px 0px 0px 900px; width: 180px; height: 35px">
         <input type="hidden" th:value="${username}" name="username">
