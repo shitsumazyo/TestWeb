@@ -1,7 +1,5 @@
 package com.example.test.model;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +24,7 @@ public class UserInfo {
 	private String username;
 	private String password;
 	
-	private ArrayList<Blog> blogInfo;
+//	private ArrayList<Blog> blogInfo;
 	
 	
 }

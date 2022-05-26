@@ -23,8 +23,9 @@
     </style>
 </head>
 <body>
-    <h1 style="margin: 130px auto -130px;width: 100px;">Failed!!</h1>
-    <div style="display: flex;height: 100px; width: 600px; margin: 300px auto;justify-content: space-between;">
+    <h1 style="margin: 130px auto 0px;width: 100px;">Failed!!</h1>
+    <p style="color: red; text-align: center; font-weight: bold;" th:text="${message}">aaaa</p>
+    <div style="display: flex;height: 100px; width: 600px; margin: 150px auto;justify-content: space-between;">
         
         <a href="/login" style="text-align: center; line-height: 105px;width: 200px;">Sign In</a>
         <a href="/register" style="text-align: center; line-height: 100px;width: 200px;">Sign Up</a>

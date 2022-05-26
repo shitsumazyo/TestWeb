@@ -1,6 +1,5 @@
 package com.example.test.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +29,24 @@ public class ControllerTI {
 			@RequestParam("password") String password, //
 			@RequestParam("repeat_password") String repeatpassword, //
 			ModelAndView mv) {
-
 		if (!password.equals(repeatpassword)) {
 			mv.setViewName("fail");
+			mv.addObject("message", "Passwords do not match");
+		} else if(username.equals("")) {
+			mv.setViewName("fail");
+			mv.addObject("message", "username entered is not in a valid format");
 		} else {
-			ArrayList<Blog> blogs  = new ArrayList<>(); 
-			UserInfo userinfo = UserInfo.builder().username(username).password(password).blogInfo(blogs).build();
+//			ArrayList<Blog> blogs  = new ArrayList<>(); 
+//			UserInfo userinfo = UserInfo.builder().username(username).password(password).blogInfo(blogs).build();
+			List<UserInfo> user =  userRepository.findAll();
+			for(UserInfo i : user) {
+				if(i.getUsername().equals(username)) {
+					mv.setViewName("fail");
+					mv.addObject("message", "username already exists");
+					return mv;
+				}
+			}
+			UserInfo userinfo = UserInfo.builder().username(username).password(password).build();
 			userRepository.save(userinfo);
 			mv.setViewName("Login");
 		}
@@ -59,9 +70,9 @@ public class ControllerTI {
 		Blog blog = Blog.builder().blogtitle(blogtitle).blogsummary(blogsummary).blogcontent(blogcontent).username(username).build();
 		blogRepository.save(blog);
 		
-		UserInfo user = userRepository.findByUsername(username);
-		user.getBlogInfo().add(blog);
-		userRepository.save(user);
+//		UserInfo user = userRepository.findByUsername(username);
+//		user.getBlogInfo().add(blog);
+//		userRepository.save(user);
 		
 		List<Blog> blogs  = blogRepository.findAllByUsername(username);
 		mv.addObject("blogs",blogs);

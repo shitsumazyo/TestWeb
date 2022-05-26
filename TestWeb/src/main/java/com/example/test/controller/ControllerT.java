@@ -55,6 +55,7 @@ public class ControllerT {
 			mv.setViewName("Blog");
 		}else {
 			mv.setViewName("fail");
+			mv.addObject("message", "username or password was wrong");
 		}
 		return mv;
 	}
