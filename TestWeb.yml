@@ -134,7 +134,7 @@ paths:
             schema:
               type: "object"
               properties:
-                userId:
+                username:
                   type: "string"
                 blogtitle:
                   type: "string"
@@ -158,7 +158,7 @@ paths:
             schema:
               type: "object"
               properties:
-                userId:
+                username:
                   type: "string"
                 blogtitle:
                   type: "string"
@@ -188,7 +188,7 @@ paths:
             schema:
               type: "object"
               properties:
-                userId:
+                username:
                   type: "string"
                 blogtitle:
                   type: "string"
