@@ -77,7 +77,7 @@ public class ControllerTI {
 		List<Blog> blogs  = blogRepository.findAllByUsername(username);
 		mv.addObject("blogs",blogs);
 
-		mv.addObject("blogtitle", blogtitle);
+//		mv.addObject("blogtitle", blogtitle);
 		mv.addObject("username", username);
 		
 		mv.setViewName("Blog");
@@ -86,9 +86,9 @@ public class ControllerTI {
 	}
 	
 	@PostMapping("delete")
-	public ModelAndView del(ModelAndView mv, @RequestParam("username")String username, @RequestParam("blogtitle")String blogtitle) {
+	public ModelAndView del(ModelAndView mv, @RequestParam("username")String username, @RequestParam("id")Long id) {
 		
-		blogRepository.deleteByBlogtitle(blogtitle);
+		blogRepository.deleteById(id);;
 		
 //		UserInfo user = userRepository.findByUsername(username);
 //		ArrayList<Blog> blogs  = user.getBlogInfo(); 

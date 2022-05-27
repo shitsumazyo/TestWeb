@@ -61,11 +61,11 @@ public class ControllerT {
 	}
 	
 	@PostMapping("/edit")
-	public ModelAndView editView(ModelAndView mv, @RequestParam("username")String username, @RequestParam("blogtitle")String blogtitle) {
+	public ModelAndView editView(ModelAndView mv, @RequestParam("username")String username, @RequestParam("id")Long id) {
 		
-		Blog blog = blogRepository.findByBlogtitle(blogtitle);
+		Blog blog = blogRepository.findById(id).get();
 		
-		mv.addObject("blogid",blog.getId());
+		mv.addObject("blogid", id);
 		mv.addObject("blogtitle", blog.getBlogtitle());
 		mv.addObject("blogsummary", blog.getBlogsummary());
 		mv.addObject("blogcontent", blog.getBlogcontent());

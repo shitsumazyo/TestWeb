@@ -26,7 +26,7 @@
     <form  method="post" style="width: 540px;margin: auto;border: solid;margin-top: 30px;border-color: rgb(21, 183, 233);border-width: 20px 16px 20px 16px; box-shadow: 10px 10px 5px #aaaaaa;"  th:each="blog : ${blogs}">
     
         <input type="hidden" th:value="${username}" name="username">
-        <input type="hidden" th:value="${blog.blogtitle}" name="blogtitle">
+        <input type="hidden" th:value="${blog.id}" name="id">
         
         <div>
             <h2 for="title">Title </h2>
